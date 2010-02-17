@@ -1,29 +1,26 @@
 /*global $, jQuery, window: true */
 var railswareOverlay = function () {
-    var options;
-    var overlay;
-    var loader;
-    var size;
+    var options, overlay, loader, size;
 
     var defaults = {
         loader: false,
         opacity: 0.7,
         background: 'black',
         index: 5,
-        loader_path : '16_cycle_one_24.gif',
-        loader_top : '50%',
-        loader_left: '50%'
+        loaderPath : '16_cycle_one_24.gif',
+        loaderTop : '50%',
+        loaderLeft: '50%'
     };
 
     // Public method
     var init = function(opts) {
         options = $.extend({}, defaults, opts);
-        size = viewport();
+        size = getViewportSize();
         return this;
     };
 
     // Borrowed from jQuery Tools project
-    var viewport = function() {
+    var getViewportSize = function() {
         // the horror case
         if ($.browser.msie) {
             // if there are no scrollbars then use window.height
@@ -46,28 +43,28 @@ var railswareOverlay = function () {
         overlay.css({
             'display': 'none',
             'position': 'absolute',
-            'opacity': options['opacity'],
-            'background': options['background'],
+            'opacity': options.opacity,
+            'background': options.background,
             'top': '0',
             'left': '0',
             'text-align': 'center',
-            'z-index': options['index'],
+            'z-index': options.index,
             'width': size[0],
             'height': size[1]
         });
     };
 
     var initLoader = function() {
-        if (options['loader']) {
-            overlay.after('<div id="loader"><img src="' + options['loader_path'] + '" alt="" /></div>');
+        if (options.loader) {
+            overlay.after('<div id="loader"><img src="' + options.loaderPath + '" alt="" /></div>');
             loader = $('div#loader');
 
             loader.css({
                 'display': 'none',
                 'position': 'fixed',
-                'top': options['loader_top'],
-                'left': options['loader_left'],
-                'z-index': options['index'] + 1
+                'top': options.loaderTop,
+                'left': options.loaderLeft,
+                'z-index': options.index + 1
             }).fadeIn();
         }
     };
