@@ -15,7 +15,7 @@ var railswareOverlay = function () {
         loader_left: '50%'
     };
 
-    // this will be a public method
+    // Public method
     var init = function(opts) {
         options = $.extend({}, defaults, opts);
         size = viewport();
@@ -72,6 +72,7 @@ var railswareOverlay = function () {
         }
     };
 
+    // Public method
     var show = function() {
         initOverlay();
         overlay.fadeIn();
@@ -87,6 +88,7 @@ var railswareOverlay = function () {
         return overlay;
     };
 
+    // Public method
     var hide = function() {
         if (overlay.get(0)) {
             overlay.fadeOut('slow', function () {
