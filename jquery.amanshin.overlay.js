@@ -27,7 +27,7 @@ jQuery.aManshinOverlay = {
         });
 
         if (options['loader']) {
-            overlay.after('<div id="loader"><img src="/images/loader.gif"></div>');
+            overlay.after('<div id="loader"><img src="tmp/ajax-loader.gif"></div>');
 
             var loader = $('div#loader').css({
                 'display': 'none',
